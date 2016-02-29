@@ -1,0 +1,70 @@
+package:
+  name: nolearn
+  version: "0.5"
+
+source:
+  fn: nolearn-0.5.tar.gz
+  url: https://pypi.python.org/packages/source/n/nolearn/nolearn-0.5.tar.gz
+  md5: 29bfdb3d021d7769b2efec70af21d380
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - nolearn = nolearn:main
+    #
+    # Would create an entry point called nolearn that calls nolearn.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - docopt
+    - gdbn
+    - joblib
+    - scikit-learn
+
+  run:
+    - python
+    - docopt
+    - gdbn
+    - joblib
+    - scikit-learn
+
+test:
+  # Python imports
+  imports:
+    - nolearn
+    - nolearn.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/dnouri/nolearn
+  license: MIT
+  summary: 'scikit-learn compatible wrappers for neural net libraries, and other utilities.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

@@ -1,0 +1,82 @@
+package:
+  name: nolearn
+  version: "0.7.0"
+
+source:
+  # fn: nolearn-0.7.tar.gz
+  # url: https://github.com/dnouri/nolearn.git
+  # md5: 29bfdb3d021d7769b2efec70af21d380
+  git_url: https://github.com/totalgood/nolearn.git
+  git_rev: v0.7.0
+
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - nolearn = nolearn:main
+    #
+    # Would create an entry point called nolearn that calls nolearn.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - docopt
+    - gdbn
+    - joblib ==0.9.3
+    - scikit-learn ==0.17
+
+  run:
+    - python
+    - docopt
+    - gdbn
+    - joblib ==0.9.3
+    - scipy ==0.16.1
+    - matplotlib ==1.5.1
+    - scikit-learn ==0.17
+    - tabulate ==0.7.5
+    - lasagne ==0.2
+    - Theano ==0.8
+    # - pip:
+    #   - "--editable=git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git"
+    #   - "--editable=git+https://github.com/Theano/Theano.git@54186290#egg=Theano==0.8.git"
+
+
+test:
+  # Python imports
+  imports:
+    - nolearn
+    - nolearn.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/dnouri/nolearn
+  license: MIT
+  summary: 'scikit-learn compatible wrappers for neural net libraries, and other utilities.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
