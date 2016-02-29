@@ -1,0 +1,70 @@
+package:
+  name: lasagne
+  version: "0.2"
+
+source:
+  # fn: Lasagne-0.1.tar.gz
+  # url: https://pypi.python.org/packages/source/L/Lasagne/Lasagne-0.1.tar.gz
+  # md5: 44212b92bf5f3b1be3021fa0b64b5fdb
+  git_url: https://github.com/Lasagne/Lasagne.git
+  git_rev: master
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - lasagne = lasagne:main
+    #
+    # Would create an entry point called lasagne that calls lasagne.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - six >=1.10.0
+
+  run:
+    - python
+    - numpy
+    - theano ==0.8
+    - six >=1.10.0
+
+test:
+  # Python imports
+  imports:
+    - lasagne
+    - lasagne.layers
+    - lasagne.theano_extensions
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/Lasagne/Lasagne
+  license: MIT License
+  summary: 'A lightweight library to build and train neural networks in Theano'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
