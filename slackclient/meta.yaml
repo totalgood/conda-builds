@@ -1,0 +1,65 @@
+package:
+  name: slackclient
+  version: "1.0.0"
+
+source:
+  fn: slackclient-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/source/s/slackclient/slackclient-1.0.0.tar.gz
+  md5: 298723596ff81106d0831ced51c81fbc
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - slackclient = slackclient:main
+    #
+    # Would create an entry point called slackclient that calls slackclient.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - websocket-client
+    - requests
+
+  run:
+    - python
+    - websocket-client
+    - requests
+
+test:
+  # Python imports
+  imports:
+    - slackclient
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/slackhq/python-slackclient
+  license: MIT
+  summary: 'Python client for Slack.com'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

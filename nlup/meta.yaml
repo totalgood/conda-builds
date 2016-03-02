@@ -1,0 +1,63 @@
+package:
+  name: nlup
+  version: "0.5"
+
+source:
+  fn: nlup-0.5.tar.gz
+  url: https://pypi.python.org/packages/source/n/nlup/nlup-0.5.tar.gz
+  md5: dfd23ed3144389cf64525a12c3e22876
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - nlup = nlup:main
+    #
+    # Would create an entry point called nlup that calls nlup.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jsonpickle >=0.9.0
+
+  run:
+    - python
+    - jsonpickle >=0.9.0
+
+test:
+  # Python imports
+  imports:
+    - nlup
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/cslu-nlp/nlup/
+  license: MIT License
+  summary: ['Core libraries for natural language processing']
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
